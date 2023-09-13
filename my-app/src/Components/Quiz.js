@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Questions } from "../Helpers/QuestionBank";
 import { QuizContext } from "../Helpers/Contexts";
+import "../App.css";
 
 function Quiz() {
   const { score, setScore, setGameState } = useContext(QuizContext);
@@ -13,6 +14,7 @@ function Quiz() {
       setScore(score + 1);
     }
     setCurrentQuestion(currentQuestion + 1);
+    setOptionChosen("");
   };
 
   const finishQuiz = () => {
@@ -24,18 +26,30 @@ function Quiz() {
 
   return (
     <div className="Quiz">
-      <h1>{Questions[currentQuestion].prompt}</h1>
+      <h1 className="question-title">{Questions[currentQuestion].prompt}</h1>
       <div className="options">
-        <button onClick={() => setOptionChosen("A")}>
+        <button
+          onClick={() => setOptionChosen("A")}
+          className={optionChosen === "A" ? "clicked" : ""}
+        >
           {Questions[currentQuestion].optionA}
         </button>
-        <button onClick={() => setOptionChosen("B")}>
+        <button
+          onClick={() => setOptionChosen("B")}
+          className={optionChosen === "B" ? "clicked" : ""}
+        >
           {Questions[currentQuestion].optionB}
         </button>
-        <button onClick={() => setOptionChosen("C")}>
+        <button
+          onClick={() => setOptionChosen("C")}
+          className={optionChosen === "C" ? "clicked" : ""}
+        >
           {Questions[currentQuestion].optionC}
         </button>
-        <button onClick={() => setOptionChosen("D")}>
+        <button
+          onClick={() => setOptionChosen("D")}
+          className={optionChosen === "D" ? "clicked" : ""}
+        >
           {Questions[currentQuestion].optionD}
         </button>
       </div>
@@ -43,7 +57,10 @@ function Quiz() {
       {currentQuestion == Questions.length - 1 ? (
         <button onClick={finishQuiz}>Finish Quiz</button>
       ) : (
-        <button onClick={nextQuestion}> Next Question</button>
+        <button className="next-question" onClick={nextQuestion}>
+          {" "}
+          Next Question
+        </button>
       )}
     </div>
   );

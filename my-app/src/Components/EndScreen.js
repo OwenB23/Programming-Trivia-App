@@ -14,7 +14,7 @@ function EndScreen() {
 
   return (
     <div className="Endscreen">
-      <h1>Quiz Finished</h1>
+      <h1>Quiz Finished!</h1>
       <h3>
         {score} / {Questions.length}
       </h3>

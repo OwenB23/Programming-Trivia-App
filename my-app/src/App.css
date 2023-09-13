@@ -2,6 +2,15 @@ body {
   background-color: #f9db6d;
 }
 
+.game-title {
+  border-radius: 10px;
+  padding: 5px;
+  color: #2708a0;
+  -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1)
+    both;
+  animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
 .App {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -11,7 +20,7 @@ body {
 }
 
 .menu {
-  width: 700px;
+  width: 60%;
   height: 500px;
   border-radius: 10px;
   background-color: #2708a0;
@@ -23,11 +32,33 @@ body {
   text-align: center;
 }
 
+.Quiz {
+  width: 60%;
+  height: 500px;
+  border-radius: 10px;
+  background-color: #2708a0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.question-title {
+  font-size: 28px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 30px;
+}
+
 .menu button,
 .Quiz button {
   -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1)
-    both;
-  animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+    1.2s both;
+  animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) 1.2s both;
   width: 300px;
   height: 50px;
   margin: 5px;
@@ -37,6 +68,112 @@ body {
   cursor: pointer;
 }
 
+.menu button:hover,
+.Quiz button:hover {
+  background-color: #cccccc;
+  border: 3px solid #f9db6d;
+}
+
+.Quiz button.clicked {
+  background-color: #cccccc;
+  border: 3px solid #f9db6d;
+}
+
+.next-question {
+  background-color: #f9db6d;
+  font-weight: bold;
+  color: #2708a0;
+}
+
+.options button {
+  -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1)
+    1.2s both;
+  animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) 1.2s both;
+}
+
+/* End Screen */
+.Endscreen {
+  background-color: #2708a0;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 300px;
+}
+
+.Endscreen h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #fff;
+  font-size: 28px;
+}
+
+.Endscreen h3 {
+  color: #f9db6d;
+  font-weight: bold;
+  font-size: 25px;
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.Endscreen button {
+  -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1)
+    1.2s both;
+  animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) 1.2s both;
+  width: 300px;
+  height: 50px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.Endscreen button:hover {
+  background-color: #cccccc;
+  border: 3px solid #f9db6d;
+}
+
+.footer {
+  bottom: 0;
+  color: #2708a0;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+}
+
+/* Key Frames For Title */
+
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Key Frames For Buttons */
 @-webkit-keyframes slide-in-blurred-top {
   0% {
     -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
@@ -78,21 +215,29 @@ body {
   }
 }
 
-.Quiz {
-  width: 700px;
-  height: 500px;
-  border-radius: 10px;
-  background-color: lightseagreen;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-}
+/* Key frames for Score */
 
-.options button {
-  -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
-  animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

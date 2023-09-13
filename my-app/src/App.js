@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import MainMenu from "./Components/MainMenu";
 import EndScreen from "./Components/EndScreen";
 import Quiz from "./Components/Quiz";
+import Footer from "./Components/Footer";
 
 import { QuizContext } from "./Helpers/Contexts";
 
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Programming Trivia App</h1>
+      <h1 className="game-title">JavaScript Quiz</h1>
       <QuizContext.Provider
         value={{ gameState, setGameState, score, setScore }}
       >
@@ -20,6 +21,7 @@ function App() {
         {gameState === "quiz" && <Quiz />}
         {gameState === "endScreen" && <EndScreen />}
       </QuizContext.Provider>
+      <Footer />
     </div>
   );
 }
